@@ -33,7 +33,7 @@ server.listen(0, '127.0.0.1', common.mustCall(function() {
   net.connect(this.address().port, 'localhost')
     .on('lookup', common.mustCall(function(err, ip, type, host) {
       assert.strictEqual(err, null);
-      assert.strictEqual(ip, '127.0.0.1');
+      assert.match(e.address, /^127\.0\.0\.1$|^::1$/); // eslint-disable-line
       assert.strictEqual(type, 4);
       assert.strictEqual(host, 'localhost');
     }));
