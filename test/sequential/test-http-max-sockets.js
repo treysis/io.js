@@ -40,12 +40,12 @@ const server = http.createServer(function(req, res) {
   res.end('Hello World\n');
 });
 
-const addrString = agent.getName({ host: '127.0.0.1', port: common.PORT });
+const addrString = agent.getName({ host: '::1', port: common.PORT });
 
-server.listen(common.PORT, '127.0.0.1', function() {
+server.listen(common.PORT, '::1', function() {
   for (let i = 0; i < N; i++) {
     const options = {
-      host: '127.0.0.1',
+      host: '::1',
       port: common.PORT
     };
 
