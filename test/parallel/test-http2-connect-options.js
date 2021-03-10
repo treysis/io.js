@@ -25,7 +25,7 @@ server.listen(0, 'localhost', common.mustCall(() => {
   const options = { localAddress: 'localhost' };
 
   const client = http2.connect(
-    'http://localhost:' + server.address().port,
+    'http://[::1]:' + server.address().port,
     options
   );
   const req = client.request({

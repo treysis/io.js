@@ -44,7 +44,7 @@ server.listen(0, 'localhost', () => {
                     port: server.address().port,
                     path: '/',
                     method: 'GET',
-                    localAddress: 'localhost' };
+                    localAddress: '::1' };
 
   const req = http.request(options, function(res) {
     res.on('end', () => {

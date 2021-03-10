@@ -54,7 +54,7 @@ server.listen(0, 'localhost', function() {
     port: this.address().port,
     path: '/',
     method: 'GET',
-    localAddress: 'localhost',
+    localAddress: '::1',
     rejectUnauthorized: false
   };
 

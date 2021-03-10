@@ -98,7 +98,7 @@ async function testBreakpoint(session) {
 }
 
 async function runTest() {
-  const child = new NodeInstance(['--inspect-brk=localhost'], '',
+  const child = new NodeInstance(['--inspect-brk=localhost:0'], '',
                                  fixtures.path('es-modules/loop.mjs'));
 
   const session = await child.connectInspectorSession();

@@ -14,7 +14,7 @@ function makeConnection() {
   const client = new TCP(TCPConstants.SOCKET);
 
   const req = new TCPConnectWrap();
-  const err = client.connect(req, '127.0.0.1', this.address().port);
+  const err = client.connect(req, '::1', this.address().port);
   assert.strictEqual(err, 0);
 
   req.oncomplete = function(status, client_, req_, readable, writable) {
