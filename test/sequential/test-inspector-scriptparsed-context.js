@@ -44,7 +44,7 @@ async function checkScriptContext(session, context) {
 
 async function runTests() {
   const instance = new NodeInstance(['--inspect-brk=localhost:0',
-                                    '--expose-internals'],
+                                     '--expose-internals'],
                                     script);
   const session = await instance.connectInspectorSession();
   await session.send([
