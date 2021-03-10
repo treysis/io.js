@@ -326,7 +326,7 @@ class InspectorSession {
 }
 
 class NodeInstance extends EventEmitter {
-  constructor(inspectorFlags = ['--inspect-brk=localhost',
+  constructor(inspectorFlags = ['--inspect-brk=localhost:0',
                                 '--expose-internals'],
               scriptContents = '',
               scriptFile = _MAINSCRIPT) {
