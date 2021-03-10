@@ -30,7 +30,7 @@ const assert = require('assert');
 
 const server = http.createServer((req, res) => {
   console.log(`Connect from: ${req.connection.remoteAddress}`);
-  assert.strictEqual(req.connection.remoteAddress, '127.0.0.2');
+  assert.strictEqual(req.connection.remoteAddress, 'localhost');
 
   req.on('end', () => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -39,12 +39,12 @@ const server = http.createServer((req, res) => {
   req.resume();
 });
 
-server.listen(0, '127.0.0.1', () => {
+server.listen(0, 'localhost', () => {
   const options = { host: 'localhost',
                     port: server.address().port,
                     path: '/',
                     method: 'GET',
-                    localAddress: '127.0.0.2' };
+                    localAddress: 'localhost' };
 
   const req = http.request(options, function(res) {
     res.on('end', () => {
