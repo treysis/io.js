@@ -23,7 +23,7 @@ const server = net.createServer((c) => {
       assert.strictEqual(e.path, undefined);
       assert.strictEqual(e.host, undefined);
       assert.strictEqual(e.port, port);
-      assert.strictEqual(e.localAddress, common.localhostIPv4);
+      assert.strictEqual(e.localAddress, /^(127\.0\.0\.1|::1)$/);
       server.close();
       errored = true;
     }))
