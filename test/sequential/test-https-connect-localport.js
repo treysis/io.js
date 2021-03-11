@@ -17,10 +17,10 @@ const assert = require('assert');
     res.end();
   }));
 
-  server.listen(0, '::1', common.mustCall(() => {
+  server.listen(0, 'localhost', common.mustCall(() => {
     const port = server.address().port;
     const req = https.get({
-      host: '::1',
+      host: 'localhost',
       pathname: '/',
       port,
       family: 4,
