@@ -31,7 +31,7 @@ const dgram = require('dgram');
   socket.on('listening', common.mustCall(() => {
     const address = socket.address();
 
-    assert.strictEqual(address.address, common.localhostIPv4);
+    assert.strictEqual(address.address, common.localhostIP);
     assert.strictEqual(typeof address.port, 'number');
     assert.ok(isFinite(address.port));
     assert.ok(address.port > 0);

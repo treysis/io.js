@@ -23,7 +23,7 @@ function primary() {
 
   // Create a handle and use its fd.
   const rawHandle = new UDP();
-  const err = rawHandle.bind(common.localhostIPv4, 0, 0);
+  const err = rawHandle.bind(common.localhostIP, 0, 0);
   assert(err >= 0, String(err));
   assert.notStrictEqual(rawHandle.fd, -1);
 
