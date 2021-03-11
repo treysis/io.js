@@ -42,7 +42,7 @@ const server = http.createServer(function(req, res) {
 
 const addrString = agent.getName({ host: '::1', port: common.PORT });
 
-server.listen(common.PORT, '::1', function() {
+server.listen(common.PORT, 'localhost', function() {
   for (let i = 0; i < N; i++) {
     const options = {
       host: '::1',
