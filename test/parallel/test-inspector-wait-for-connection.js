@@ -7,7 +7,7 @@ const assert = require('assert');
 const { NodeInstance } = require('../common/inspector-helper.js');
 
 async function runTests() {
-  const child = new NodeInstance(['--incpsect=localhost',
+  const child = new NodeInstance(['--inspect=localhost',
                                   '-e', `(${main.toString()})()`], '', '');
   const session = await child.connectInspectorSession();
   await session.send({ method: 'Runtime.enable' });
