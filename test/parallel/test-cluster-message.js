@@ -60,7 +60,7 @@ if (cluster.isWorker) {
     maybeReply();
   });
 
-  server.listen(0, '::1');
+  server.listen(0, 'localhost');
 } else if (cluster.isPrimary) {
 
   const checks = {
