@@ -39,7 +39,7 @@ const options = {
 
 const server = https.createServer(options, function(req, res) {
   console.log(`Connect from: ${req.connection.remoteAddress}`);
-  assert.match(req.connection.remoteAddress, /^127\.0\.0\.1$|^::1$/);
+  assert.match(req.connection.remoteAddress, /^(127\.0\.0\.2|::1)$/);
 
   req.on('end', function() {
     res.writeHead(200, { 'Content-Type': 'text/plain' });

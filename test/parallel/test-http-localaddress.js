@@ -30,8 +30,7 @@ const assert = require('assert');
 
 const server = http.createServer((req, res) => {
   console.log(`Connect from: ${req.connection.remoteAddress}`);
-  assert.match(req.connection.remoteAddress,
-               /^127\.0\.0\.1$|^127\.0\.0\.2$|^::1$/);
+  assert.match(req.connection.remoteAddress, /^(127\.0\.0\.2|::1)$/);
 
   req.on('end', () => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
