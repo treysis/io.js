@@ -12,7 +12,7 @@ const assert = require('assert');
 
 const server = http2.createServer((req, res) => {
   console.log(`Connect from: ${req.connection.remoteAddress}`);
-  assert.strictEqual(req.connection.remoteAddress, 'localhost');
+  assert.match(req.connection.remoteAddress, /^(127\.0\.0\.1|::1)$/);
 
   req.on('end', common.mustCall(() => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -22,10 +22,10 @@ const server = http2.createServer((req, res) => {
 });
 
 server.listen(0, 'localhost', common.mustCall(() => {
-  const options = { localAddress: 'localhost' };
+  const options = { localAddress: '::1' };
 
   const client = http2.connect(
-    'http://[::1]:' + server.address().port,
+    'http://localhost:' + server.address().port,
     options
   );
   const req = client.request({
