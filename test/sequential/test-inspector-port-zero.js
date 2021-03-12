@@ -1,5 +1,6 @@
 'use strict';
 const { mustCall, skipIfInspectorDisabled } = require('../common');
+const common = require('../common');
 
 skipIfInspectorDisabled();
 
