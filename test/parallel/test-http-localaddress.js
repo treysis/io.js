@@ -44,7 +44,7 @@ server.listen(0, 'localhost', () => {
                     port: server.address().port,
                     path: '/',
                     method: 'GET',
-                    localAddress: '::1' };
+                    localAddress: common.hasIPv6 ? '::1' : '127.0.0.2' };
 
   const req = http.request(options, function(res) {
     res.on('end', () => {

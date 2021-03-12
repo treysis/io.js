@@ -30,7 +30,7 @@ function pickIPv4Address() {
 }
 
 async function test() {
-  const instance = new NodeInstance('--inspect-brk=[::]:0');
+  const instance = new NodeInstance('--inspect-brk=0.0.0.0:0');
   try {
     checkIpAddress(ip, await instance.httpGet(ip, '/json/list'));
   } catch (error) {

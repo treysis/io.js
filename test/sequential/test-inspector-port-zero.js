@@ -41,15 +41,18 @@ function test(arg, port = '') {
 }
 
 test('--inspect=0');
-test('--inspect=[::1]:0');
+test('--inspect=127.0.0.1:0');
+if (common.hasIPv6) test('--inspect=[::1]:0');
 test('--inspect=localhost:0');
 
 test('--inspect-brk=0');
-test('--inspect-brk=[::1]:0');
+test('--inspect=127.0.0.1:0');
+if (common.hasIPv6) test('--inspect=[::1]:0');
 test('--inspect-brk=localhost:0');
 
 // In these cases, the inspector doesn't listen, so an ephemeral port is not
 // allocated and the expected value of `process.debugPort` is `0`.
 test('--inspect-port=0', '0');
-test('--inspect-port=[::1]:0', '0');
+test('--inspect=127.0.0.1:0');
+if (common.hasIPv6) test('--inspect=[::1]:0');
 test('--inspect-port=localhost:0', '0');

@@ -16,8 +16,8 @@ const server = net.createServer((c) => {
   let errored = false;
   tls.connect({
     port: port,
-    localAddress: '::1'
-  }, 'localhost')
+    localAddress: common.localhostIP,
+  }, common.localhostIP)
     .once('error', common.mustCall((e) => {
       assert.strictEqual(e.code, 'ECONNRESET');
       assert.strictEqual(e.path, undefined);

@@ -269,7 +269,7 @@ if (common.hasCrypto) { // eslint-disable-line node-core/crypto-check
       }
       testInitialized(wreq, 'WriteWrap');
     }
-    req.address = common.localhostIP;
+    req.address = common.localhostIPv4;
     req.port = server.address().port;
     const err = handle.connect(req, req.address, req.port);
     assert.strictEqual(err, 0);
